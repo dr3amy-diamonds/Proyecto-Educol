@@ -1,0 +1,60 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Enlace al CSS de noticias -->
+  <link rel="stylesheet" href="{% static 'usuarios/css/Noticia.css' %}" />
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="{% static 'usuarios/images/icon.png' %}" type="image/x-icon" />
+  <title>Noticias EduCol</title>
+</head>
+<body>
+
+  <!-- Línea superior azul -->
+  <div class="cabezota">
+
+        <div class="Boton">
+        <a href="{% url 'inicio' %}">
+            <img class="boton_Atras"
+                 src="{% static 'usuarios/images/atras.png' %}"
+                 alt="Botón Atrás" />
+        </a>
+    </div>
+
+
+  </div>
+
+  <!-- Cabecera grande con fondo e overlay -->
+  <div class="Cabeza">
+    <header class="Noticias">
+      <img class="Image" src="{% static 'usuarios/images/Noticias.png' %}" alt="Logo Noticias" />
+      <h1>Noticias</h1>
+    </header>
+  </div>
+
+  <!-- Contenedor de noticias dinámicas -->
+  <div class="contenedor-noticias" id="noticias-container">
+    <p>Cargando noticias...</p>
+  </div>
+
+  <!-- Paginación -->
+  <div id="paginacion" class="paginacion"></div>
+
+  <!-- Pie de página fijo -->
+  <footer>
+    EduCol © 2025. Todos los derechos reservados.
+    <br>
+    Creado Por Sarah Montes & Valentina Ojeda
+    <br>
+    Correo: Val&amp;SarahPro@jourrapide.com
+    <br>
+    Teléfono de Contacto: 318-489-9744
+  </footer>
+
+  <!-- Script de carga y renderizado de noticias -->
+  <script src="{% static 'usuarios/js/noticias.js' %}"></script>
+</body>
+</html>
+

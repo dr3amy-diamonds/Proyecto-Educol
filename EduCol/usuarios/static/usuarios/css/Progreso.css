@@ -1,0 +1,361 @@
+body {
+    background-color: #E3E3E3;
+    font-family: Tahoma, sans-serif;
+    margin: 0;
+    padding: 0;
+    font-weight: lighter;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.cabezota {
+    width: 100%;
+    height: 20px;
+    background-color: #3B6EA5;
+    margin-bottom: 20px;
+}
+
+
+.flex_superior{
+    width: 100px;
+    height: 60px;
+    margin-left: 5px;
+}
+
+.Atras {
+    width: 100px;
+    object-fit: contain;
+    cursor: pointer;
+}
+
+
+
+.Cabecera {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+}
+
+.Usuario {
+    width: 200px;
+    margin-right: 30px;
+}
+
+.Texto {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.progress-container {
+    width: 300px;
+    background-color: #ccc;
+    border-radius: 10px;
+    height: 20px;
+    margin-top: 10px;
+    overflow: hidden;
+}
+
+.progress-bar {
+    height: 100%;
+    background-color: #3AFF08;
+    width: 0%;
+    transition: width 0.4s ease;
+}
+
+.Estados {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.estado {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    margin: 0 3px;
+}
+
+.estado-selector {
+    margin: 20px;
+    font-family: Tahoma;
+    text-align: center;
+}
+
+.estado-selector select {
+    display: inline-block;
+    padding: 5px 10px;
+    font-size: 16px;
+    border-radius: 8px;
+}
+
+.estado-actual {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    font-size: 18px;
+    margin: 10px 20px;
+}
+
+.estado {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.Paneles {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+    height: 350px;
+}
+
+.Panel {
+    background-color: #f4f4f4;
+    padding: 20px;
+    border-radius: 20px;
+    width: 250px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.Panel .icono {
+    width: 150px;
+    margin: 10px 0;
+}
+
+.Panel button {
+    background-color: #3388ff;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.dialog-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.dialog-container .dialog {
+    background-color: #e0e0e0;
+    border: 2px solid #1d4f8d;
+    width: 400px;
+    box-shadow: 0 0 5px #888;
+}
+
+.dialog-header {
+    background-color: #1d4f8d;
+    color: white;
+    padding: 5px 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: bold;
+}
+
+.close-btn {
+    background-color: #c0392b;
+    color: white;
+    border: none;
+    font-size: 18px;
+    font-weight: bold;
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+}
+
+.dialog-body {
+    text-align: center;
+    padding: 20px;
+}
+
+.icon {
+    height: 60px;
+    margin-bottom: 10px;
+}
+
+.mensaje {
+    margin: 10px 0;
+    font-size: 16px;
+}
+
+.trofeo {
+    height: 20px;
+    vertical-align: middle;
+    margin-left: 5px;
+}
+
+.boton {
+    margin-top: 20px;
+}
+
+.boton button {
+    padding: 8px 20px;
+    border: 2px solid #1d4f8d;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: white;
+}
+
+.boton button:hover {
+    background-color: lightblue;
+}
+
+/* Contenedor principal que empuja el footer */
+.main-content {
+    flex-grow: 1;
+}
+
+/* Footer fijo abajo solo en flujo natural */
+footer {
+    background-color: #3B6EA5;
+    text-align: center;
+    padding: 20px 0;
+    font-size: 14px;
+    color: #FFFFFF;
+    width: 100%;
+    box-shadow: 0 -1px 5px rgba(0,0,0,0.1);
+}
+
+/* Responsive para tablets y pantallas medianas */
+@media (max-width: 768px) {
+    .Cabecera {
+        flex-direction: column;
+        padding: 15px;
+    }
+
+    .Usuario {
+        width: 150px;
+        margin-right: 0;
+        margin-bottom: 15px;
+    }
+
+    .Texto {
+        align-items: center;
+    }
+
+    .progress-container {
+        width: 90%;
+        max-width: 300px;
+        margin: 10px auto 0 auto;
+    }
+
+    .Paneles {
+        flex-direction: column;
+        align-items: center;
+        height: auto;
+        gap: 20px;
+        padding: 10px;
+    }
+
+    .Panel {
+        width: 90%;
+        max-width: 350px;
+        padding: 15px;
+    }
+
+    .Panel .icono {
+        width: 100px;
+        margin: 10px auto;
+    }
+
+    .estado-actual {
+        flex-wrap: wrap;
+        gap: 6px;
+        font-size: 16px;
+        margin: 10px auto;
+    }
+
+    .estado-selector {
+        margin: 15px auto;
+        width: 90%;
+        max-width: 300px;
+    }
+
+    .estado-selector select {
+        width: 100%;
+        font-size: 14px;
+    }
+}
+
+.boton_Atras {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; 
+    cursor: pointer;
+}
+
+.boton_Atras:hover {
+    opacity: 0.8;
+}
+
+.Boton {
+    position: fixed; /* Lo fija en la pantalla */
+    top: 10px;       /* Separación desde el borde superior */
+    left: 10px;      /* Separación desde el borde izquierdo */
+    width: 60px;
+    height: 60px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Asegura que esté encima de otros elementos */
+}
+
+
+/* Responsive para móviles pequeños */
+@media (max-width: 480px) {
+    .Cabecera {
+        padding: 10px;
+    }
+
+    .Usuario {
+        width: 120px;
+        margin-bottom: 10px;
+    }
+
+    .progress-container {
+        width: 100%;
+        margin-top: 5px;
+    }
+
+    .Panel {
+        width: 100%;
+        max-width: none;
+        padding: 12px;
+    }
+
+    .Panel .icono {
+        width: 80px;
+    }
+
+    .boton button {
+        font-size: 14px;
+        padding: 6px 16px;
+    }
+
+    .estado-selector select {
+        font-size: 12px;
+        padding: 4px 8px;
+    }
+
+    .estado-actual {
+        font-size: 14px;
+        gap: 4px;
+        margin: 8px auto;
+    }
+}

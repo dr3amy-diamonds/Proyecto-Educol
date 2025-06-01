@@ -1,0 +1,122 @@
+body {
+    font-family: Tahoma;
+    background-color: #E3E3E3;
+    font-weight: normal;
+    margin: 0;
+    padding-bottom: 60px;
+}
+
+.Cabezera_superior {
+  background-color: #3B6EA5;
+  height: 50px;
+  margin-bottom: 5px;
+  width: 100%;
+  display: flex;               /* habilita flexbox */
+  align-items: center;         /* centra verticalmente */
+  padding: 0 20px;             /* espacio a los lados */
+  box-sizing: border-box;
+    
+}
+
+
+.Boton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60px;
+    height: 60px;
+    margin-left: 5px;
+    border-radius: 10px; 
+}
+
+
+
+.boton_Atras {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; 
+    cursor: pointer;
+    
+}
+
+.Contenedor_principal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.Caja {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 40vh;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+h1 {
+    text-align: center;
+    line-height: 15px;
+}
+
+.Logo_biblioteca {
+    width: 150px;
+    height: 200px;
+}
+
+.Tabla_y_Contenido {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 30px; 
+    padding: 20px; 
+    width: 70%; 
+    margin: 0 auto; 
+    flex-wrap: wrap;
+}
+
+
+table {
+    font-family: Tahoma;
+    border-collapse: collapse;
+    width: 400px;
+    margin-bottom: 40px;
+
+}
+
+td, th {
+    border: 3px solid #dddddd;
+    padding: 35px 40px;
+    font-size: 20px;
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+td:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+
+.Cabeza {
+    background-color: #3B6EA5;
+    color: #FFFAFA;
+    font-size: 25px;
+}
+
+.Contenido_dinamico {
+    width: 50%;
+    min-height: 200px;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    transition: all 0.3s ease;
+}

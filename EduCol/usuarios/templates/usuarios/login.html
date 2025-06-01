@@ -1,0 +1,94 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Se carga el CSS usando el tag static -->
+    <link rel="stylesheet" href="{% static 'usuarios/css/Inicio_sesion.css' %}">
+    <!-- Se define el icono del sitio -->
+    <link rel="icon" href="{% static 'usuarios/images/icon.png' %}" type="image/png">
+    <title>Inicio de Sesión Educol</title>
+</head>
+<body>
+    <div class="caja">
+        <!-- Contenedor inicio de sesión -->
+        <div class="contenedor">
+            <div class="inicio_sesion">
+                <h1>Inicio de Sesión</h1>
+            </div>
+
+            <div class="imagen2">
+                <!-- Imagen estática -->
+                <img src="{% static 'usuarios/images/login.png' %}" alt="LoginEduCol">
+            </div>
+
+            <div class="formulario">
+                <!-- Formulario real de login -->
+                <form method="post" action="{% url 'login' %}">
+                    {% csrf_token %}
+
+                    <!-- Mensajes de error, si los hay -->
+                    {% if messages %}
+                      <ul class="error-list">
+                        {% for message in messages %}
+                          <li class="error">{{ message }}</li>
+                        {% endfor %}
+                      </ul>
+                    {% endif %}
+
+                    <!-- Correo electrónico (django espera name="username") -->
+                    <div class="grupo-input">
+                        <label for="correo">Correo Electrónico:</label>
+                        <input 
+                          type="email" 
+                          id="correo" 
+                          name="username" 
+                          required 
+                          placeholder="Introduce tu correo"
+                        >
+                    </div>
+
+                    <!-- Contraseña -->
+                    <div class="grupo-input">
+                        <label for="contrasena">Contraseña:</label>
+                        <input 
+                          type="password" 
+                          id="contrasena" 
+                          name="password" 
+                          required 
+                          placeholder="Introduce tu contraseña"
+                        >
+                    </div>
+
+                    <!-- Tu mismo botón de imagen como submit -->
+                    <div class="input-btn">
+                        <input 
+                          type="submit" 
+                          class="login-btn" 
+                          value=""
+                        >
+                    </div>
+                </form>
+
+                <!-- Enlace a registro -->
+                <div class="Cuenta_Inexistente">
+                  <p>¿No tienes cuenta? 
+                     <a href="{% url 'registro' %}">Regístrate aquí</a>
+                  </p>
+                </div>
+
+                <!-- Enlace a recuperación de contraseña -->
+                <div class="Recuperar_Contrasena">
+                  <p>¿Olvidaste tu contraseña? 
+                     <a href="{% url 'password_reset' %}">Recupérala aquí</a>
+                  </p>
+                </div>
+
+
+
+            </div>
+        </div>
+    </div>
+</body>
+</html>

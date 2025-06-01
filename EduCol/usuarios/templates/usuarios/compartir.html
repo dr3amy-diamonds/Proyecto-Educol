@@ -1,0 +1,228 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Hoja de estilos Django -->
+    <link rel="stylesheet" href="{% static 'usuarios/css/Compartir.css' %}" />
+    <link rel="shortcut icon" href="{% static 'usuarios/images/icon.png' %}" type="image/x-icon" />
+    <title>Compartir</title>
+    <!-- Font Awesome CDN permanece igual -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+</head>
+<body>
+    <div class="cabezota"></div>
+
+    <div class="flex_superior">
+        <!-- Enlace de vuelta al inicio usando URL Django -->
+        <a href="{% url 'inicio' %}">
+            <img class="Atras" src="{% static 'usuarios/images/icon.png' %}" alt="Botón Atrás" />
+        </a>
+    </div>
+
+    <div class="Cabeza">
+        <header class="Header_Items">
+            <img class="imagen" src="{% static 'usuarios/images/Compartir.png' %}" alt="Logo Compartir" />
+            <h1>Compartir</h1>
+        </header>
+    </div>
+
+    <main>
+        <div class="Contenedor_Medio">
+            <button class="boton-xp" id="btnNuevaTarea">
+                <span class="icono">+</span> Subir Archivo
+            </button>
+        </div>
+
+        <div class="Contenedor_Principal">
+            <!-- Repite tus cajas (4) tal cual -->
+            <div class="Caja">
+                <div class="Caja-header">
+                    <img src="{% static 'usuarios/images/Perfil.png' %}" class="icon-user" />
+                    <span>Nombre de Usuario</span>
+                    <i class="fa-solid fa-ellipsis-vertical opciones"></i>
+                </div>
+                <div class="Caja-img">
+                    <img src="{% static 'usuarios/images/archivo.png' %}" alt="Archivo" />
+                </div>
+                <div class="Caja-footer">
+                    <span>Título de Archivo</span>
+                    <div class="iconos">
+                        <i class="fa-solid fa-heart"></i>
+                        <i class="fa-solid fa-download"></i>
+                        <i class="fa-solid fa-share-nodes"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="Caja">
+                <div class="Caja-header">
+                    <img src="{% static 'usuarios/images/Perfil.png' %}" class="icon-user" />
+                    <span>Nombre de Usuario</span>
+                    <i class="fa-solid fa-ellipsis-vertical opciones"></i>
+                </div>
+                <div class="Caja-img">
+                    <img src="{% static 'usuarios/images/archivo.png' %}" alt="Archivo" />
+                </div>
+                <div class="Caja-footer">
+                    <span>Título de Archivo</span>
+                    <div class="iconos">
+                        <i class="fa-solid fa-heart"></i>
+                        <i class="fa-solid fa-download"></i>
+                        <i class="fa-solid fa-share-nodes"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="Caja">
+                <div class="Caja-header">
+                    <img src="{% static 'usuarios/images/Perfil.png' %}" class="icon-user" />
+                    <span>Nombre de Usuario</span>
+                    <i class="fa-solid fa-ellipsis-vertical opciones"></i>
+                </div>
+                <div class="Caja-img">
+                    <img src="{% static 'usuarios/images/archivo.png' %}" alt="Archivo" />
+                </div>
+                <div class="Caja-footer">
+                    <span>Título de Archivo</span>
+                    <div class="iconos">
+                        <i class="fa-solid fa-heart"></i>
+                        <i class="fa-solid fa-download"></i>
+                        <i class="fa-solid fa-share-nodes"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="Caja">
+                <div class="Caja-header">
+                    <img src="{% static 'usuarios/images/Perfil.png' %}" class="icon-user" />
+                    <span>Nombre de Usuario</span>
+                    <i class="fa-solid fa-ellipsis-vertical opciones"></i>
+                </div>
+                <div class="Caja-img">
+                    <img src="{% static 'usuarios/images/archivo.png' %}" alt="Archivo" />
+                </div>
+                <div class="Caja-footer">
+                    <span>Título de Archivo</span>
+                    <div class="iconos">
+                        <i class="fa-solid fa-heart"></i>
+                        <i class="fa-solid fa-download"></i>
+                        <i class="fa-solid fa-share-nodes"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <dialog class="Dialog_Informacion_Archivo" id="dialogInformacion">
+        <div class="dialog-header">
+            <img src="{% static 'usuarios/images/icon.png' %}" alt="icono ventana" class="icono-ventana" />
+            <span>Información de Archivo</span>
+            <button class="close-btn" id="btnCerrarDialogInformacion">×</button>
+        </div>
+        <div class="dialog-body">
+            <div class="info-row">
+                <img src="{% static 'usuarios/images/Perfil1.png' %}" alt="Usuario" class="icono-info" />
+                <span class="info-label">Usuario quien lo subió</span>
+                <span class="info-value">Valentina Ojeda</span>
+            </div>
+            <div class="info-row">
+                <img src="{% static 'usuarios/images/Carpeta.png' %}" alt="Nombre de Archivo" class="icono-info" />
+                <span class="info-label">Nombre de Archivo</span>
+                <span class="info-value">Vertebrados</span>
+            </div>
+            <div class="info-row">
+                <img src="{% static 'usuarios/images/Documento.png' %}" alt="Tipo de Archivo" class="icono-info" />
+                <span class="info-label">Tipo de Archivo</span>
+                <span class="info-value">Pdf/xls/Docs/ptt</span>
+            </div>
+            <div class="info-row">
+                <img src="{% static 'usuarios/images/Peso.png' %}" alt="Peso del Archivo" class="icono-info" />
+                <span class="info-label">Peso del Archivo</span>
+                <span class="info-value">15 mb</span>
+            </div>
+            <div class="info-row">
+                <img src="{% static 'usuarios/images/Corazon.png' %}" alt="Puntuación" class="icono-info" />
+                <span class="info-label">Puntuación</span>
+                <span class="info-value">4.6/5 (1k corazones)</span>
+            </div>
+        </div>
+    </dialog>
+
+    <dialog class="dialog" id="dialogSubirTarea">
+        <div class="dialog-header">
+            <span>Subir Archivo</span>
+            <button class="close-btn" id="btnCerrarDialogSubir">×</button>
+        </div>
+        <div class="dialog-body">
+            <div class="archivo-subida">
+                <div>
+                    <label style="font-weight: bold;">Selecciona un Archivo</label>
+                    <div style="display: flex; align-items: center; gap: 10px; margin-top: 5px;">
+                        <img src="{% static 'usuarios/images/Diskete.png' %}" alt="Diskete" class="icono-carpeta" />
+                        <label class="file-label">
+                            <div class="custom-file-upload">Examinar</div>
+                            <input type="file" />
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <label for="tipoArchivo" style="font-weight: bold;">Tipo de Archivo</label><br />
+                <select id="tipoArchivo" name="tipoArchivo">
+                    <option value="Tarea">Tarea</option>
+                    <option value="Examen">Examen</option>
+                    <option value="Otro">Otro</option>
+                </select>
+            </div>
+            <div class="boton-subir" style="margin-top: 15px;">
+                <button type="button" onclick="document.getElementById('dialogSubirTarea').close()">Subir</button>
+            </div>
+            <div class="formatos">
+                Formatos permitidos: PDF, DOCX, JPG.<br />
+                Tamaño máximo: 10 MB.
+            </div>
+        </div>
+    </dialog>
+
+    <!-- Tu JavaScript original intacto -->
+    <script>
+        // Subir archivo dialog
+        document.getElementById('btnNuevaTarea')
+            .addEventListener('click', () => document.getElementById('dialogSubirTarea').showModal());
+        document.getElementById('btnCerrarDialogSubir')
+            .addEventListener('click', () => document.getElementById('dialogSubirTarea').close());
+        const dialogTarea = document.getElementById('dialogSubirTarea');
+        dialogTarea.addEventListener('click', e => {
+            const rect = dialogTarea.getBoundingClientRect();
+            if (e.clientX < rect.left || e.clientX > rect.right || e.clientY < rect.top || e.clientY > rect.bottom) {
+                dialogTarea.close();
+            }
+        });
+    </script>
+
+    <script>
+        // Información de archivo dialog
+        document.querySelectorAll(".opciones").forEach(icon => {
+            icon.addEventListener("click", () => {
+                document.getElementById("dialogInformacion").showModal();
+            });
+        });
+        document.getElementById("btnCerrarDialogInformacion")
+            .addEventListener("click", () => {
+                document.getElementById("dialogInformacion").close();
+            });
+    </script>
+
+    <footer>
+        EduCol © 2025. Todos los derechos reservados.
+        <br />
+        Creado Por Sarah Montes & Valentina Ojeda
+        <br />
+        Correo: Val&SarahPro@jourrapide.com
+        <br />
+        Telefono de Contacto: 318-489-9744
+    </footer>
+</body>
+</html>

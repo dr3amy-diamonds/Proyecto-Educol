@@ -1,0 +1,112 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="{% static 'usuarios/images/icon.png' %}" type="image/x-icon" />
+    <title>Panel del profesor</title>
+    <link rel="stylesheet" href="{% static 'usuarios/css/PP.css' %}" />
+</head>
+<body>
+    <div class="contenedor">
+
+
+        <header>
+            Panel del profesores
+        </header>
+
+        <aside>
+            <button onclick="mostrarSeccion('crear')">Nuevo</button>
+            <button onclick="mostrarSeccion('visualizar')">Visualizar</button>
+            <button onclick="mostrarSeccion('eliminar')">Eliminar Tarea</button>
+            <button onclick="mostrarSeccion('modificar')">Modificar</button>
+        </aside>
+
+        <main>
+            <!-- Sección Crear -->
+            <section id="crear" class="seccion activa">
+                <h2>Crear Tarea</h2>
+                <label>Nombre de tarea:</label>
+                <input type="text" />
+                <label>Descripción de tarea:</label>
+                <textarea></textarea>
+                <label>Asignatura:</label>
+                <select>
+                    <option>Seleccionar</option>
+                    <option>Matemáticas</option>
+                    <option>Ciencias Naturales</option>
+                    <option>Lenguaje</option>
+                    <option>Historia</option>
+                    <option>Informática</option>
+                </select>
+                <label>Fecha de cierre:</label>
+                <input type="date" />
+                <button class="publicar">Publicar</button>
+            </section>
+
+            <!-- Sección Visualizar -->
+            <section id="visualizar" class="seccion">
+                <h2>Visualizar Tareas</h2>
+                <table>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Asignatura</th>
+                        <th>Fecha de cierre</th>
+                    </tr>
+                    <tr>
+                        <td>Ejemplo 1</td>
+                        <td>Matemáticas</td>
+                        <td>2025-06-01</td>
+                    </tr>
+                </table>
+            </section>
+
+            <!-- Sección Eliminar -->
+            <section id="eliminar" class="seccion">
+                <h2>Eliminar Tarea</h2>
+                <label>Selecciona la tarea a eliminar:</label>
+                <select>
+                    <option>Tarea ejemplo 1</option>
+                </select>
+                <button class="eliminar-btn" style="background-color:#d32f2f">Eliminar</button>
+            </section>
+
+            <!-- Sección Modificar -->
+            <section id="modificar" class="seccion">
+                <h2>Modificar Tarea</h2>
+                <label>Selecciona la tarea a modificar:</label>
+                <select>
+                    <option>Tarea ejemplo 1</option>
+                </select>
+                <label>Nuevo nombre:</label>
+                <input type="text" />
+                <label>Nueva descripción:</label>
+                <textarea></textarea>
+                <label>Nueva fecha:</label>
+                <input type="date" />
+                <button class="modificar-btn">Guardar cambios</button>
+            </section>
+        </main>
+
+        <div class="lateral">
+            <img src="{% static 'usuarios/images/Profesor.png' %}" alt="Profesor" />
+            <p>¡Bienvenido Profesor!</p>
+            <img src="{% static 'usuarios/images/Estudiante.png' %}" alt="Estudiante" />
+        </div>
+
+        <footer>
+            EduCol © 2025. Todos los derechos reservados.
+            <br>
+            Creado Por Sarah Montes & Valentina Ojeda
+            <br>
+            Correo: Val&SarahPro@jourrapide.com
+            <br>
+            Teléfono de Contacto: 318-489-9744
+        </footer>
+    </div>
+
+    <script src="{% static 'script.js' %}"></script>
+</body>
+</html>

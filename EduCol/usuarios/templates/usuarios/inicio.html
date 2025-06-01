@@ -1,0 +1,110 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="{% static 'usuarios/images/icon.png' %}" type="image/png">
+    <link rel="stylesheet" href="{% static 'usuarios/css/inicio.css' %}">
+    <title>Educol</title>
+</head>
+<body>
+    <div class="Tamano">
+        <div class="cabezota"></div>
+
+        <div class="Flex_Container_superior">
+            <div class="Item">
+                <a href="{% url 'biblioteca' %}">
+                    <img class="libro" src="{% static 'usuarios/images/biblioteca.png' %}" alt="Biblioteca">
+                </a>
+                <div class="Biblioteca">Biblioteca</div>
+            </div>
+            <div class="Item">
+                <a href="{% url 'portafolio' %}" class="ItemLink">
+                    <img class="Portafoli_o" src="{% static 'usuarios/images/portafolio.png' %}" alt="Portafolio">
+                    <div class="Portafolio">Portafolio</div>
+                </a>
+            </div>
+            <div class="Item">
+                <a href="{% url 'actividades' %}" class="ItemLink">
+                    <img class="pintura" src="{% static 'usuarios/images/actividades.png' %}" alt="Actividades">
+                    <div class="Actividades">Actividades</div>
+                </a>
+            </div>
+            <div class="Item">
+                <a href="{% url 'bola' %}">
+                    <img class="bol_a" src="{% static 'usuarios/images/bola.png' %}" alt="Bola">
+                </a>
+                <div class="Bola"></div>
+            </div>
+            <div class="Item">
+                <a href="{% url 'progreso' %}" class="ItemLink">
+                    <img class="Progres_o" src="{% static 'usuarios/images/progreso.png' %}" alt="Progreso">
+                    <span>Progreso</span>
+                </a>
+            </div>
+            <div class="Item">
+                <a href="{% url 'calendario' %}" class="ItemLink">
+                    <img class="Calendari_o" src="{% static 'usuarios/images/calendario.png' %}" alt="Calendario">
+                    <span>Calendario</span>
+                </a>
+            </div>
+
+              <div class="Item">
+             {% if is_profesor %}
+             <a href="{% url 'panel_profesor' %}" class="ItemLink">
+             <img class="foro" src="{% static 'usuarios/images/Profesor.png' %}" alt="Profesor">
+             <span>Profesor</span>
+             </a>
+             {% else %}
+             <a href="{% url 'formulario_profesor' %}" class="ItemLink">
+             <img class="foro" src="{% static 'usuarios/images/Profesor.png' %}" alt="Profesor">
+             <span>Profesor</span>
+             </a>
+             {% endif %}
+             </div>
+
+
+        </div>
+
+        <div class="Medio"></div>
+
+        <div class="Flex_Container_Medio">
+            <h1>Bienvenidos a EduCol</h1>
+            <div class="Logo_centro">
+                <img class="Logo" src="{% static 'usuarios/images/icon.png' %}" alt="Logo Educol">
+            </div>
+        </div>
+
+        <div class="Flex_Container_Final">
+            <div class="Cajas_Izquierda">
+                <a href="{% url 'noticias' %}">
+                    <div class="Caja1">
+                        <img class="Noticias" src="{% static 'usuarios/images/Noticias.png' %}" alt="Noticias">
+                        <div class="Texto1">Noticias</div>
+                    </div>
+                </a>
+            </div>
+
+            <div class="Cajas_Derechas">
+                <a href="{% url 'compartir' %}">
+                    <div class="Caja3">
+                        <img class="Correo" src="{% static 'usuarios/images/correo.png' %}" alt="Compartir"> 
+                        <div class="Texto3">Compartir</div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        EduCol © 2025. Todos los derechos reservados.
+        <br>
+        Creado Por Sarah Montes & Valentina Ojeda
+        <br>
+        Correo: Val&amp;SarahPro@jourrapide.com
+        <br>
+        Teléfono de Contacto: 318-489-9744
+    </footer>
+</body>
+</html>

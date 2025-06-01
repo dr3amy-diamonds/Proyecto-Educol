@@ -1,0 +1,66 @@
+{% load static %}
+
+<!DOCTYPE html>
+
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'usuarios/css/Portafolio.css' %}">
+    <link rel="shortcut icon" href="{% static 'usuarios/images/icon.png' %}" type="image/x-icon">
+    <title>Portafolio</title>
+</head>
+<body>
+<div class="Cabezota">    <div class="Boton">
+        <a href="{% url 'inicio' %}">
+            <img class="boton_Atras"
+                 src="{% static 'usuarios/images/atras.png' %}"
+                 alt="Botón Atrás" />
+        </a>
+    </div></div>
+
+<div class="flex_superior">
+    <a href="{% url 'inicio' %}">
+        <img class="Atras" src="{% static 'usuarios/images/icon.png' %}" alt="Atrás"/>
+    </a>
+</div>
+
+<div class="Cabeza">
+    <header>
+        <h1>Portafolio</h1>
+        <img class="Imagen" src="{% static 'usuarios/images/Carpeta.png' %}" alt="Portafolio">
+    </header>
+</div>
+
+<div class="Contenedor_Principal">
+    <a href="{% url 'guias' %}" class="Caja">
+        <img src="{% static 'usuarios/images/Guias.png' %}" alt="Guías">
+        <p>Guías</p>
+    </a>
+    <a href="{% url 'video_tutoriales' %}" class="Caja">
+        <img src="{% static 'usuarios/images/Video.png' %}" alt="Video Tutoriales">
+        <p>Video Tutoriales</p>
+    </a>
+    <a href="{% url 'ejercicios' %}" class="Caja">
+        <img src="{% static 'usuarios/images/Ejercicios.png' %}" alt="Ejercicios">
+        <p>Ejercicios</p>
+    </a>
+    <a href="{% url 'retos' %}" class="Caja">
+        <img src="{% static 'usuarios/images/Retos.png' %}" alt="Retos">
+        <p>Retos</p>
+    </a>
+</div>
+
+<footer>
+    EduCol © 2025. Todos los derechos reservados.
+    <br>
+    Creado Por Sarah Montes & Valentina Ojeda
+    <br>
+    Correo: Val&amp;SarahPro@jourrapide.com
+    <br>
+    Teléfono de Contacto: 318-489-9744
+</footer>
+
+
+</body>
+</html>

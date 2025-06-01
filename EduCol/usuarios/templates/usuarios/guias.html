@@ -1,0 +1,108 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    <link rel="stylesheet" href="{% static 'usuarios/css/Guias.css' %}">
+    
+    <link rel="shortcut icon" href="{% static 'usuarios/images/icon.png' %}" type="image/x-icon">
+    
+    <title>Guías</title>
+</head>
+<body>
+    <div class="Cabezota"></div>
+
+    <div class="flex_superior">
+        <a href="{% url 'inicio' %}"> 
+            <img class="Atras" src="{% static 'usuarios/images/icon.png' %}" alt="Botón Atrás" />
+        </a>
+    </div>
+
+    <div class="Cabeza">
+        <header class="Header">
+            <img class="Imagen" src="{% static 'usuarios/images/Guias.png' %}" alt="Logo Guia">
+            <h1>Guías</h1>
+        </header>
+    </div>
+
+    <div class="Contenedor">
+        <h2>Selecciona un área de estudio:</h2>
+        <button class="boton-tema" onclick="cargarGuia('Matemáticas')">🧮 Matemáticas</button>
+        <button class="boton-tema" onclick="cargarGuia('Biología')">🧬 Biología</button>
+        <button class="boton-tema" onclick="cargarGuia('Idiomas')">📘 Idiomas</button>
+        <button class="boton-tema" onclick="cargarGuia('Ciencias Sociales')">📜 Ciencias Sociales</button>
+        <button class="boton-tema" onclick="cargarGuia('Informática')">💻 Informática</button>
+
+        <div id="contenido">
+            <p>👈 Haz clic en un área para cargar guías, libros y recursos.</p>
+        </div>
+    </div>
+
+    <!-- Extraído a archivo JS (si decides hacerlo), o puede quedarse inline -->
+    <script>
+        const enlacesWikibooks = {
+            "Matemáticas": "https://es.wikibooks.org/wiki/Matemáticas",
+            "Biología": "https://es.wikibooks.org/wiki/Biología",
+            "Idiomas": "https://es.wikibooks.org/wiki/Categoría:Libros_de_Idiomas",
+            "Ciencias Sociales": "https://es.wikibooks.org/wiki/Categoría:Ciencias_sociales",
+            "Informática": "https://es.wikibooks.org/wiki/Categoría:Informática"
+        };
+
+        async function cargarGuia(tema) {
+            const contenidoDiv = document.getElementById("contenido");
+            contenidoDiv.innerHTML = "<p>Cargando... ⏳</p>";
+
+            try {
+                const wikiRes = await fetch(`https://es.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(tema)}`);
+                const wikiData = await wikiRes.json();
+
+                const gutenbergRes = await fetch(`https://gutendex.com/books?search=${encodeURIComponent(tema)}&languages=es`);
+                const gutenbergData = await gutenbergRes.json();
+
+                let html = `<h2>${wikiData.title}</h2>`;
+                if (wikiData.thumbnail) {
+                    html += `<img src="${wikiData.thumbnail.source}" style="max-width: 200px;">`;
+                }
+                html += `<p>${wikiData.extract}</p>`;
+                html += `<a href="${wikiData.content_urls.desktop.page}" target="_blank">📖 Leer más en Wikipedia</a>`;
+
+                if (enlacesWikibooks[tema]) {
+                    html += `<h3>📘 Recursos educativos (Wikibooks):</h3>`;
+                    html += `<a href="${enlacesWikibooks[tema]}" target="_blank">📚 Ver libros de ${tema} en Wikibooks</a>`;
+                }
+
+                if (gutenbergData.results.length > 0) {
+                    html += `<h3>📕 Libros relacionados (Proyecto Gutenberg):</h3><ul>`;
+                    gutenbergData.results.slice(0, 3).forEach(book => {
+                        const formatos = book.formats;
+                        const link = formatos["text/html"] || formatos["application/epub+zip"] || formatos["text/plain"];
+                        if (link) {
+                            html += `<li><a href="${link}" target="_blank">${book.title}</a></li>`;
+                        }
+                    });
+                    html += `</ul>`;
+                }
+
+                contenidoDiv.innerHTML = html;
+
+            } catch (error) {
+                contenidoDiv.innerHTML = `<p>⚠️ Error al cargar el contenido. Intenta más tarde.</p>`;
+                console.error(error);
+            }
+        }
+    </script>
+
+    <footer>
+        EduCol © 2025. Todos los derechos reservados.
+        <br>
+        Creado Por Sarah Montes & Valentina Ojeda
+        <br>
+        Correo: Val&SarahPro@jourrapide.com
+        <br>
+        Telefono de Contacto: 318-489-9744
+    </footer>
+</body>
+</html>

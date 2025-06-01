@@ -1,0 +1,171 @@
+body {
+    font-family: Tahoma;
+    background-color: #E3E3E3;
+    font-weight: normal;
+    margin: 0;
+}
+
+.Cabezera_superior {
+    background-color: #3B6EA5;
+    width: 100%;
+    height: 50px;
+    margin-bottom: 5px;
+}
+
+.Boton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60px;
+    height: 60px;
+    margin-left: 5px;
+    border-radius: 10px; 
+}
+
+.boton_Atras {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; 
+    cursor: pointer;
+}
+
+.Contenedor_Encabezado {
+    display: flex;
+}
+
+.Contenedor_Encabezado {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+h1 {
+    font-size: 60px;
+    text-align: left;
+    display: flex;
+    align-items: center;
+    gap: 10px; 
+    padding-left: 0;
+    margin: 0;
+}
+
+.Calendario {
+    width: 60px; 
+    height: auto;
+}
+
+
+.calendario-contenedor {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    width: 700px;
+    margin: 30px auto;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.calendario-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.calendario-header button {
+    font-size: 20px;
+    padding: 5px 10px;
+    cursor: pointer;
+    background-color: #3B6EA5;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+
+#mes-actual {
+    font-size: 24px;
+    margin: 0;
+}
+
+.dias-semana {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    background-color: #3B6EA5;
+    color: white;
+    text-align: center;
+    font-weight: bold;
+    padding: 10px 0;
+}
+
+.grid-calendario {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-auto-rows: 100px;
+    border: 1px solid #ccc;
+}
+
+.grid-calendario div {
+    border: 1px solid #ddd;
+    padding: 5px;
+    text-align: right;
+    font-size: 14px;
+}
+
+footer {
+    background-color: #3B6EA5;
+    text-align: center;
+    padding: 20px 0;
+    font-size: 14px;
+    color: #FFFFFF;
+    bottom: 0;
+    width: 100%;
+    box-shadow: 0 -1px 5px rgba(0,0,0,0.1);
+}
+
+/* Días del calendario con evento */
+.grid-calendario div.has-event {
+    background-color: #cce5ff;
+    position: relative;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+/* Puntito indicador de evento */
+.grid-calendario div.has-event::after {
+    content: "";
+    width: 6px;
+    height: 6px;
+    background: #0056b3;
+    border-radius: 50%;
+    position: absolute;
+    bottom: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* Casillas vacías para offset: sin borde ni fondo */
+.grid-calendario div.empty {
+  background: none;
+  border: none;
+}
+
+/* Cada día (para que .has-event no rompa el padding) */
+.grid-calendario div.day {
+  position: relative;
+}
+
+/* Tooltip sencillo: aparece al pasar el ratón */
+.grid-calendario div.day .event-tip {
+  display: none;
+  position: absolute;
+  top: 5px; left: 5px;
+  background: rgba(0,0,0,0.75);
+  color: #fff;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 12px;
+  white-space: nowrap;
+  z-index: 10;
+}
+.grid-calendario div.day:hover .event-tip {
+  display: block;
+}

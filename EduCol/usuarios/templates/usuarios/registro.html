@@ -1,0 +1,65 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Carga el CSS usando el tag static -->
+    <link rel="stylesheet" href="{% static 'usuarios/css/Registro.css' %}">
+    <!-- Icono del sitio -->
+    <link rel="icon" href="{% static 'usuarios/images/icon.png' %}" type="image/png">
+    <title>Registro Educol</title>
+</head>
+<body>
+
+        <!-- Botón Atrás vuelve al Inicio de Sesión -->
+    <div class="Boton">
+        <a href="{% url 'login' %}">
+            <img class="boton_Atras"
+                 src="{% static 'usuarios/images/atras.png' %}"
+                 alt="Botón Atrás" />
+        </a>
+    </div>
+
+
+    <div class="caja">
+        <!-- Contenedor Registro -->
+        <div class="contenedor">
+            <div class="inicio_sesion">
+                <h1>Registro</h1>
+            </div>
+            <div class="imagen3">
+                <img src="{% static 'usuarios/images/registro.png' %}" alt="Registro EduCol">
+            </div>
+            <div class="input">
+                <form method="post">
+                    {% csrf_token %}
+                    
+                    <!-- Input de Registro: Correo Electrónico -->
+                    <label for="{{ form.mail.id_for_label }}">Correo Electrónico:</label>
+                    <div class="input_correo">
+                        {{ form.mail }}
+                    </div>
+                    
+                    <!-- Input de Registro: Nombre Completo -->
+                    <label for="{{ form.nombre_completo.id_for_label }}">Nombre Completo:</label>
+                    <div class="input_nombre">
+                        {{ form.nombre_completo }}
+                    </div>
+                    
+                    <!-- Input de Registro: Contraseña -->
+                    <label for="{{ form.password.id_for_label }}">Contraseña:</label>
+                    <div class="input_contrasena">
+                        {{ form.password }}
+                    </div>
+
+                    <!-- Botón para crear nueva cuenta -->
+                    <div class="input-btn">
+                        <input type="submit" class="login-btn" value="">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

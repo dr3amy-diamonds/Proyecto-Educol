@@ -1,0 +1,60 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="{% static 'usuarios/images/icon.png' %}" type="image/png">
+  <link rel="stylesheet" href="{% static 'usuarios/css/Calendario.css' %}" />
+  <title>Calendario</title>
+</head>
+<body>
+  <div class="Cabezera_superior">
+
+        <!-- Botón Atrás vuelve al dashboard -->
+    <div class="Boton">
+        <a href="{% url 'inicio' %}">
+            <img class="boton_Atras"
+                 src="{% static 'usuarios/images/atras.png' %}"
+                 alt="Botón Atrás" />
+        </a>
+    </div>
+
+  </div>
+
+  <div class="calendario-contenedor">
+    <div class="calendario-header">
+      <button id="prev">&lt;</button>
+      <span id="mes-actual"></span>
+      <button id="next">&gt;</button>
+    </div>
+
+    <!-- fila de cabecera con días de la semana -->
+    <div class="dias-semana">
+      <div>Dom</div><div>Lun</div><div>Mar</div>
+      <div>Mié</div><div>Jue</div><div>Vie</div><div>Sáb</div>
+    </div>
+
+    <!-- aquí el JS inyecta las casillas -->
+    <div id="grid-dias" class="grid-calendario"></div>
+  </div>
+
+  <script src="{% static 'usuarios/js/calendario.js' %}"></script>
+
+  <footer>
+    EduCol © 2025. Todos los derechos reservados.
+    <br>
+    Creado Por Sarah Montes & Valentina Ojeda
+    <br>
+    Correo: Val&SarahPro@jourrapide.com
+    <br>
+    Telefono de Contacto: 318-489-9744
+  </footer>
+
+</body>
+</html>
+
+
+
+
+

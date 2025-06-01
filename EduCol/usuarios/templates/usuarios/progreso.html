@@ -1,0 +1,136 @@
+{# usuarios/templates/usuarios/progreso.html #}
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'usuarios/css/Progreso.css' %}">
+    <link rel="icon" href="{% static 'usuarios/images/icon.png' %}" type="image/png">
+    <title>Progreso</title>
+</head>
+<body>
+    <div class="cabezota"></div>
+
+    <div class="flex_superior">
+        <a href="{% url 'inicio' %}">
+            <img class="Atras" src="{% static 'usuarios/images/icon.png' %}" alt="Botón Atrás" />
+        </a>
+    </div>
+
+    <div class="Cabecera">
+        <img class="Usuario" src="{% static 'usuarios/images/Logro.png' %}" alt="Usuario Graduado">
+        <div class="Texto">
+            <h2>{{ user.get_full_name }}</h2>
+            <p>¡Sigue así, estás cerca de tu meta!</p>
+            <div class="progress-container">
+                <div id="progress-bar" class="progress-bar" style="width: 96.1%;"></div>
+            </div>
+            <p id="progress-text">Progreso 96.1%</p>
+        </div>
+    </div>
+
+    <div class="dialog-container" id="miDialogo">
+        <div class="dialog">
+            <div class="dialog-header">
+                ¡Hola {{ user.first_name }}!
+                <button class="close-btn" onclick="cerrarDialogo()">×</button>
+            </div>
+            <div class="dialog-body">
+                <img src="{% static 'usuarios/images/Feliz.png' %}" alt="Carita feliz" class="icon">
+                <div class="mensaje">
+                    Hoy tienes {{ pendientes_count }} tareas pendientes<br>
+                    y un nuevo logro <img src="{% static 'usuarios/images/Copa.png' %}" alt="Trofeo" class="trofeo">
+                </div>
+                <div class="boton">
+                    <button onclick="cerrarDialogo()">Aceptar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="estado-selector">
+        <label for="estado">Estado:</label>
+        <select id="estado" onchange="actualizarEstado()">
+            <option value="conectado">🟢 Conectado</option>
+            <option value="no_molestar">🔴 No molestar</option>
+            <option value="ausente">🟠 Ausente</option>
+            <option value="desconectado">⚫ Desconectado</option>
+        </select>
+    </div>
+    
+    <div class="estado-actual">
+        <span id="estado-circulo" class="estado conectado"></span>
+        <span id="estado-texto"> 🟢 Conectado</span>
+    </div>
+    
+    <script>
+        function actualizarEstado() {
+            const select = document.getElementById("estado");
+            const valor = select.value;
+            const texto = select.options[select.selectedIndex].text;
+            const circulo = document.getElementById("estado-circulo");
+            const estadoTexto = document.getElementById("estado-texto");
+    
+            circulo.className = "estado";
+            circulo.classList.add(valor);
+            estadoTexto.textContent = texto;
+        }
+
+        function cerrarDialogo() {
+            document.getElementById("miDialogo").style.display = "none";
+        }
+
+        document.addEventListener("DOMContentLoaded", function() {
+            // Animación de barra de progreso
+            const progresoMeta = 96.1;  // Ejemplo: podrías pasar este dato desde la vista
+            const bar = document.getElementById("progress-bar");
+            const text = document.getElementById("progress-text");
+            let current = 0;
+            const step = progresoMeta / 100;
+
+            const animar = setInterval(() => {
+                if (current >= progresoMeta) {
+                    clearInterval(animar);
+                } else {
+                    current += step;
+                    bar.style.width = current + "%";
+                    text.textContent = `Progreso ${current.toFixed(1)}%`;
+                }
+            }, 15);
+
+            actualizarEstado();
+        });
+    </script>
+    
+    <div class="Paneles">
+        <div class="Panel">
+            <h3>Logros</h3>
+            <img class="icono" src="{% static 'usuarios/images/estrella.png' %}" alt="Logros">
+            <p>{{ logros_count }} Logros</p>
+            <a href="{% url 'actividades' %}">
+                <button>Mirar Logros</button>
+            </a>
+        </div>
+        <div class="Panel">
+            <h3>Por terminar</h3>
+            <img class="icono" src="{% static 'usuarios/images/reloj.png' %}" alt="Pendientes">
+            <p>{{ pendientes_count }} Pendientes</p>
+            <a href="{% url 'actividades' %}">
+                <button>Terminar tareas</button>
+            </a>
+        </div>
+    </div>
+
+    <footer>
+        EduCol © 2025. Todos los derechos reservados.
+        <br>
+        Creado Por Sarah Montes & Valentina Ojeda
+        <br>
+        Correo: Val&amp;SarahPro@jourrapide.com
+        <br>
+        Teléfono de Contacto: 318-489-9744
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,35 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Tu CSS de Ayuda -->
+  <link rel="stylesheet" href="{% static 'usuarios/css/Ayuda.css' %}">
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="{% static 'usuarios/images/icon.png' %}" type="image/x-icon">
+  <title>Ayuda · Educol</title>
+</head>
+<body>
+  <!-- Flecha “Atrás” vuelve al dashboard -->
+  <div class="flex_superior">
+    <a href="{% url 'inicio' %}">
+      <img 
+        class="boton_Atras" 
+        src="{% static 'usuarios/images/atras.png' %}" 
+        alt="Atrás" 
+      />
+    </a>
+  </div>
+
+  <div class="Contendor_Titulo">
+    <h1>Ayuda</h1>
+    <h3>Foro Estudiantil</h3>
+    <img 
+      class="Ayuda" 
+      src="{% static 'usuarios/images/Ayuda.png' %}" 
+      alt="Ayuda" 
+    />
+  </div>
+</body>
+</html>

@@ -1,0 +1,107 @@
+{% load static %}
+
+<!DOCTYPE html>
+
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="{% static 'usuarios/css/Actividades.css' %}" />
+    <link rel="shortcut icon" href="{% static 'usuarios/images/icon.png' %}" type="image/x-icon" />
+    <title>Actividades</title>
+</head>
+<body>
+    <div class="pagina">
+
+```
+    <div class="cabezota"></div>
+
+    <div class="Contenedor_superior">
+        <div class="Contenedor_superior_TituloImagen">
+            <img class="image" src="{% static 'usuarios/images/Actividad.png' %}" alt="Actividad" />
+            <h2>Actividades</h2>
+        </div>
+    </div>
+
+    <div class="Contenedor_Medio">
+        <button class="boton-xp" id="btnNuevaTarea">+ Subir Archivo</button>
+    </div>
+
+    <dialog class="dialog" id="dialogSubirTarea">
+        <div class="dialog-header">
+            <span>Subir tarea</span>
+            <button class="close-btn" id="btnCerrarDialogSubir">×</button>
+        </div>
+        <form method="post" action="{% url 'subir_tarea' %}" enctype="multipart/form-data" class="dialog-body">
+            {% csrf_token %}
+            <div class="archivo-subida">
+                <img src="{% static 'usuarios/images/Carpeta.png' %}" alt="Carpeta" class="icono-carpeta" />
+                <label class="file-label">
+                    <div class="custom-file-upload">
+                        <span>Seleccionar Archivo...</span>
+                    </div>
+                    <input type="file" name="archivo" required />
+                </label>
+            </div>
+            <div class="comentario-tarea">
+                <label for="comentarioTarea">Comentario:</label>
+                <input type="text" id="comentarioTarea" name="comentario" />
+            </div>
+            <div class="boton-subir">
+                <button type="submit">Subir tarea</button>
+            </div>
+        </form>
+    </dialog>
+
+    <div class="Contenedor_Principal">
+        <table class="tabla-xp">
+            <thead>
+                <tr>
+                    <th>Tarea</th>
+                    <th>Asignatura</th>
+                    <th>Fecha de entrega</th>
+                    <th>Estado</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for tarea in tareas %}
+                <tr>
+                    <td data-label="Tarea">{{ tarea.titulo }}</td>
+                    <td data-label="Asignatura">{{ tarea.asignatura }}</td>
+                    <td data-label="Fecha de entrega">{{ tarea.fecha_entrega|date:"d/m/Y" }}</td>
+                    <td data-label="Estado">
+                        <span class="estado {% if tarea.completada %}completada{% else %}pendiente{% endif %}">
+                          {% if tarea.completada %}Completada{% else %}Pendiente{% endif %}
+                        </span>
+                    </td>
+                </tr>
+                {% empty %}
+                <tr><td colspan="4">No hay tareas registradas.</td></tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<footer>
+    EduCol © 2025. Todos los derechos reservados.
+    <br />
+    Creado Por Sarah Montes & Valentina Ojeda
+    <br />
+    Correo: Val&amp;SarahPro@jourrapide.com
+    <br />
+    Teléfono de Contacto: 318-489-9744
+</footer>
+
+<script>
+    const btnAbrir = document.getElementById('btnNuevaTarea');
+    const btnCerrar = document.getElementById('btnCerrarDialogSubir');
+    const dialogo = document.getElementById('dialogSubirTarea');
+
+    btnAbrir.addEventListener('click', () => dialogo.showModal());
+    btnCerrar.addEventListener('click', () => dialogo.close());
+</script>
+```
+
+</body>
+</html>

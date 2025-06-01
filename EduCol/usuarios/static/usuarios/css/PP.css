@@ -1,0 +1,119 @@
+body {
+    margin: 0;
+    font-family: Tahoma;
+    background: linear-gradient(to bottom, #dbeaff, #ffffff);
+}
+
+.contenedor {
+    display: grid;
+    grid-template-areas:
+        "header header header"
+        "aside main lateral"
+        "footer footer footer";
+    grid-template-columns: 200px 1fr 180px;
+    grid-template-rows: auto 1fr auto;
+    height: 100vh;
+}
+
+header {
+    grid-area: header;
+    background: #1c75bc;
+    color: white;
+    padding: 10px;
+    font-size: 24px;
+    text-align: center;
+    border-bottom: 2px solid #005aa7;
+}
+
+aside {
+    grid-area: aside;
+    background: #e3f2fd;
+    padding: 15px;
+    border-right: 2px solid #90caf9;
+}
+
+aside button {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    font-size: 16px;
+    background: linear-gradient(to bottom, #c5e1f7, #ffffff);
+    border: 1px solid #90caf9;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+main {
+    grid-area: main;
+    padding: 20px;
+    overflow-y: auto;
+}
+
+.lateral {
+    grid-area: lateral;
+    background: #e3f2fd;
+    padding: 10px;
+    text-align: center;
+    border-left: 2px solid #90caf9;
+}
+
+.lateral img {
+    width: 64px;
+    margin: 10px 0;
+}
+
+footer {
+    grid-area: footer;
+    text-align: center;
+    padding: 10px;
+    background: #1c75bc;
+    color: white;
+}
+
+.seccion {
+    display: none;
+}
+
+.seccion.activa {
+    display: block;
+}
+
+input,
+textarea,
+select {
+    display: block;
+    width: 100%;
+    margin-bottom: 15px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.publicar,
+.modificar-btn,
+.eliminar-btn {
+    padding: 10px 20px;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+th,
+td {
+    border: 1px solid #ccc;
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: #f0f0f0;
+}

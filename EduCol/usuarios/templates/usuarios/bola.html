@@ -1,0 +1,83 @@
+{# usuarios/templates/usuarios/bola.html #}
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="shortcut icon" href="{% static 'usuarios/images/icon.png' %}" type="image/x-icon">
+  <link rel="stylesheet" href="{% static 'usuarios/css/Perfil.css' %}" />
+  <title>Perfil de Usuario</title>
+</head>
+<body>
+  <div class="barra-superior"></div>
+
+  <header class="barra-titulo">
+    <h1>¡Bienvenido, {{ request.user.nombre_completo|default:request.user.username }}!</h1>
+  </header>
+
+  <div class="flex_superior">
+    <a href="{% url 'inicio' %}">
+      <img class="Atras" src="{% static 'usuarios/images/icon.png' %}" alt="Botón Atrás" />
+    </a>
+  </div>
+
+  <section class="contenedor-perfil">
+    <div class="foto-perfil">
+      <img src="{% static 'usuarios/images/Perfil.png' %}" alt="Foto de Perfil">
+      <button class="btn-pequeno">Cambiar Foto</button>
+    </div>
+
+    <div class="info-usuario">
+      <label for="Nombre">
+        <span>Nombre:</span>
+        {{ request.user.nombre_completo|default:request.user.username }}
+      </label>
+      <p><strong>Rol:</strong>
+        {% if is_profesor %}
+          Profesor
+        {% else %}
+          Estudiante
+        {% endif %}
+      </p>
+      <h3>Opciones de cuenta</h3>
+
+      <div class="botones">
+        <form method="post" action="{% url 'logout' %}">
+          {% csrf_token %}
+          <button type="submit" class="btn-rojo">
+            <img class="Imagen" src="{% static 'usuarios/images/Power.png' %}" alt="Cerrar sesión">
+            Cerrar Sesión
+          </button>
+        </form>
+        <button class="btn-azul" onclick="document.getElementById('dialogo-edicion').showModal()">
+          <img class="Imagen" src="{% static 'usuarios/images/Editar.png' %}" alt="Editar">
+          Modificar
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Dialog estilo XP -->
+  <dialog id="dialogo-edicion">
+    <h3>Modificar Perfil</h3>
+    <form method="post" action="{% url 'perfil_editar' %}">
+      {% csrf_token %}
+      <label>Correo: <input type="email" name="email" value="{{ request.user.email }}"></label><br>
+      <label>Contraseña: <input type="password" name="password1"></label><br>
+      <label>Confirmar: <input type="password" name="password2"></label><br>
+      <div class="botones">
+        <button type="submit" class="btn-verde">💾 Guardar</button>
+        <button type="button" class="btn-gris" onclick="document.getElementById('dialogo-edicion').close()">Cancelar</button>
+      </div>
+    </form>
+  </dialog>
+
+  <footer>
+    <p>EduCol © 2025. Todos los derechos reservados.</p>
+    <p>Creado por Sarah Montes & Valentina Ojeda</p>
+    <p>Correo: <a href="mailto:Val&amp;SarahPro@jourrapide.com">Val&amp;SarahPro@jourrapide.com</a></p>
+    <p>Teléfono de Contacto: 318-489-9744</p>
+  </footer>
+</body>
+</html>

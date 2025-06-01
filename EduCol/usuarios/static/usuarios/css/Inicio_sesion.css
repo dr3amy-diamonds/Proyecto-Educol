@@ -1,0 +1,154 @@
+/* ============================
+   Fondo y centrado general
+   ============================ */
+   body {
+    background-image: url("../images/fondo.webp");
+    background-size: cover;
+    background-repeat: no-repeat;
+    font-family: Tahoma;
+    margin: 0; 
+    height: 100vh;
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+}
+
+/* ============================
+   Flecha “Atrás”
+   ============================ */
+.flex_superior {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: 60px;
+    height: 60px;
+}
+.Atras {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    cursor: pointer;
+}
+
+/* ============================
+   Layout central sin fondo en caja
+   ============================ */
+.caja {
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    margin-top: 75px;
+}
+.contenedor {
+    display: flex;
+    flex-direction: column; 
+    justify-content: center; 
+    align-items: center; 
+    width: 100%;
+    max-width: 360px;
+    padding: 20px; 
+    box-sizing: border-box; 
+    background-color: transparent;
+}
+
+/* ============================
+   Título e imagen
+   ============================ */
+h1 {
+    margin-bottom: 20px;
+}
+.imagen2 {
+    margin-bottom: 20px;  /* espacio abajo del icono */
+}
+.imagen2 img {
+    width: 150px; 
+    height: 150px;
+    padding: 15px; /* reducido de 30px a 15px */
+}
+
+/* ============================
+   Formulario de login
+   ============================ */
+.input {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+.input_correo,
+.input_contrasena {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 30px;  /* aumentado de 15px a 30px */
+    width: 100%;
+}
+label {
+    display: block;
+    font-size: 16px;
+    margin-bottom: 8px;   /* aumentado de 5px a 8px */
+    text-align: center;
+    width: 100%;
+}
+input[type="email"],
+input[type="password"] {
+    text-align: center;
+    padding: 8px;         /* aumentado de 5px a 8px */
+    margin: 0;
+    width: 210px;
+    height: 36px;         /* ajustado para acompañar el padding */
+    border: 1px solid #E3E3E3;
+    box-sizing: border-box;
+    border-radius: 4px;
+}
+
+/* ============================
+   Botón “adelante”
+   ============================ */
+.input-btn {
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+.login-btn {
+    width: 40px;
+    height: 40px;
+    background-color: transparent;
+    background-image: url("../images/adelante.png");
+    background-size: cover;
+    background-position: center;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    transition: opacity 0.3s ease;
+}
+.login-btn:hover {
+    opacity: 0.8;
+}
+
+/* ============================
+   Enlaces registro y recuperar
+   ============================ */
+.Cuenta_Inexistente p,
+.Recuperar_Contrasena p {
+    background-color: rgba(0, 0, 0, 0.5);
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 14px;
+    margin-top: 15px;
+}
+.Cuenta_Inexistente a,
+.Recuperar_Contrasena a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+}
+.Cuenta_Inexistente a:hover,
+.Recuperar_Contrasena a:hover {
+    text-decoration: underline;
+}

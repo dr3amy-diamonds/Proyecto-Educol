@@ -1,0 +1,235 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Tahoma;
+    background: linear-gradient(to bottom, #cbe4f9, #e0ecf6);
+    color: #000;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.barra-superior {
+    height: 10px;
+    background-color: #0A246A;
+}
+
+
+.flex_superior{
+    width: 100px;
+    height: 60px;
+    margin-left: 5px;
+}
+
+.Atras {
+    width: 100px;
+    object-fit: contain;
+    cursor: pointer;
+}
+
+.barra-titulo {
+    background: linear-gradient(to bottom, #78a7dc, #1d478c);
+    color: white;
+    padding: 20px;
+    text-align: center;
+    border-bottom: 2px solid #000;
+    box-shadow: inset 0 -2px 3px rgba(0, 0, 0, 0.2);
+}
+
+.contenedor-perfil {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 40px;
+    padding: 40px;
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(4px);
+    border-radius: 12px;
+    margin: 150px auto 40px auto; /* Aumentado el espacio superior (80px) */
+    max-width: 900px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+
+.foto-perfil {
+    /* añade estas 3 líneas: */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    background: #fff;
+    border: 2px solid #9cb6dc;
+    padding: 20px;
+    text-align: center; /* sigue sirviendo para cualquier texto */
+    border-radius: 10px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+}
+
+.foto-perfil img {
+    width: 100px;
+    height: 100px;
+    border: 3px solid #fdf8c8;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.btn-pequeno {
+    /* opcional: separa un poco del img */
+    margin-top: 8px;
+
+    background: linear-gradient(to bottom, #ffffff, #d4e1f2);
+    border: 1px solid #a1b5d8;
+    padding: 6px 14px;
+    cursor: pointer;
+    font-size: 12px;
+    border-radius: 4px;
+    box-shadow: inset 0 1px 1px white;
+    /* si quieres que ocupe todo el ancho disponible: */
+    /* width: 100%; */
+}
+
+
+.info-usuario {
+    background: #ffffffdd;
+    border: 2px solid #bcd2f0;
+    padding: 20px;
+    width: 320px;
+    border-radius: 10px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+}
+
+.info-usuario label {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+.info-usuario p {
+    margin-bottom: 10px;
+}
+
+.info-usuario h3 {
+    margin: 20px 0 10px;
+}
+
+.botones {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.btn-rojo {
+    background: linear-gradient(to bottom, #ff7f7f, #cc0000);
+    color: white;
+    border: 1px solid #800000;
+    padding: 10px 16px;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.btn-azul {
+    background: linear-gradient(180deg, #67B667 0%, #3A8B3A 100%);
+    color: white;
+    border: 1px solid #003399;
+    padding: 10px 16px;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.btn-verde {
+    background: linear-gradient(to bottom, #d6f6c6, #5cb85c);
+    color: white;
+    border: 1px solid #3e8e41;
+    padding: 10px 16px;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.btn-gris {
+    background: linear-gradient(to bottom, #f0f0f0, #cccccc);
+    color: black;
+    border: 1px solid #999999;
+    padding: 10px 16px;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 6px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.Imagen {
+    width: 18px;
+    height: 18px;
+}
+
+/* Dialog */
+dialog#dialogo-edicion {
+    position: fixed;
+    /* recorta los cuatro lados a cero */
+    inset: 0;
+    /* con ancho fijo, margin:auto centra vertical y horizontal */
+    margin: auto;
+
+    border: 2px solid #7ca6d3;
+    border-radius: 10px;
+    padding: 20px;
+    background-color: #f4f9ff;
+    width: 300px;
+    font-family: Tahoma, sans-serif;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+dialog label {
+    display: block;
+    margin: 10px 0 5px;
+    font-weight: bold;
+}
+
+dialog input {
+    width: 100%;
+    padding: 6px;
+    border: 1px solid #A0A0A0;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+
+
+footer {
+    background: linear-gradient(to top, #1d478c, #3b6ea5);
+    color: white;
+    text-align: center;
+    padding: 20px;
+    font-size: 13px;
+    margin-top: auto;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+footer a {
+    color: #FFE98D;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}

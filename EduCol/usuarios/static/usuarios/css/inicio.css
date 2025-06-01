@@ -1,0 +1,215 @@
+body {
+    background-color: #E3E3E3;
+    font-family: Tahoma;
+    margin: 0; 
+    height: 100vh;
+}
+
+h1 {
+    background-color: transparent;
+    text-align: center;
+    font-family: Tahoma;
+    font-weight: normal; 
+}
+
+.Flex_Container_superior {
+    display: flex;
+    gap: 5px;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: flex-start;
+    width: 100%;
+    height: 187px;
+}
+
+.Item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100px;
+    text-align: center;
+    margin: 20px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.ItemLink {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: inherit;
+    text-align: center;
+}
+
+.Portafolio, .Actividades {
+    width: auto;
+    height: auto;
+    line-height: normal;
+    text-align: center;
+}
+
+.ItemLink span {
+    margin-top: 8px;
+    font-size: 14px;
+}
+
+.cabezota {
+    width: 100%;
+    height: 50px;
+    background-color: #3B6EA5;
+    margin-bottom: 20px;
+}
+
+.Item, .Portafolio, .Actividades, .Progreso, .Calendario, .Ayuda, .Biblioteca {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100px;
+    text-align: center;
+    cursor: pointer;
+    background-color: transparent;
+    color: #333;
+    font-family: Tahoma, sans-serif;
+    font-size: 14px;
+    border: none;
+    border-radius: 10px;
+    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+}
+
+.Portafolio, .Actividades, .Progreso, .Calendario, .Ayuda {
+    width: 60px;
+    height: 60px;
+    line-height: 60px;
+}
+
+.Biblioteca {
+    line-height: 0px;
+}
+
+.Item:hover, .Portafolio:hover, .Actividades:hover, .Progreso:hover, .Calendario:hover, .Ayuda:hover, .Biblioteca:hover {
+    background-color: transparent;
+    transform: scale(1.1);
+    box-shadow: none;
+}
+
+img {
+    align-items: center;
+    width: 100px;
+    height: 100px;
+    padding: 0%;
+    transition: transform 0.3s; 
+}
+
+.bol_a {
+    border-left: 7px solid #4CA64C;
+    border-right: 7px solid #4CA64C;
+    padding: 25px;
+}
+
+.libro {
+    width: 99px;
+    height: 129px;
+}
+
+.pintura {
+    width: 115px;
+    height: 100px;
+}
+
+.foro {
+    width: 105px;
+    height: 110px;
+}
+
+.Medio {
+    display: flex;
+    border: 4px solid #4CA64C;
+    padding-left: 20px;
+    padding-right: 20px;
+    width: 60%;
+    margin: auto;
+}
+
+.Logo_centro {
+    display: flex;
+    justify-content: center;  
+    align-items: center;      
+    width: 100%;
+}
+
+.Logo {
+    width: 230px;
+    height: 200px;
+}
+
+.Flex_Container_Final {
+    display: flex;
+    justify-content: space-between; 
+    gap: 20px; 
+}
+
+.Cajas_Izquierda {
+    margin-left: 200px;
+}
+
+.Cajas_Derechas {
+    margin-right: 200px;
+}
+
+.Caja1, .Caja2, .Caja3, .Caja4 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 15px;
+    background-color: #3B6EA5;
+    color: #FFFFFF;
+    width: 295px;
+    margin-bottom: 50px; 
+    font-family: Tahoma;
+    font-size: 20px;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.Texto1, .Texto2, .Texto3, .Texto4 {
+    width: 150px;
+    margin-bottom: 15px;
+    line-height: 5;
+}
+
+.Registro {
+    width: 110px;
+    height: 80px;
+    padding: 20px;
+}
+
+.Correo {
+    width: 100px;
+    height: 70px;
+    padding: 2px;
+}
+
+.libro, .Portafolio, .pintura, .bol_a, .Progreso, .Calendario, .foro {
+    cursor: pointer;
+}
+
+a {
+    text-decoration: none;
+}
+
+.Item:hover, .Portafolio:hover, .Actividades:hover, .Progreso:hover, .Calendario:hover, .Ayuda:hover, .Biblioteca:hover, .Caja1:hover, .Caja2:hover, .Caja3:hover, .Caja4:hover, .libro:hover, .pintura:hover, .foro:hover {
+    transform: scale(1.1); /* Hace zoom */
+}
+
+footer {
+    background-color: #3B6EA5;
+    text-align: center;
+    padding: 20px 0;
+    font-size: 14px;
+    color: #FFFFFF;
+    bottom: 0;
+    width: 100%;
+    box-shadow: 0 -1px 5px rgba(0,0,0,0.1);
+}

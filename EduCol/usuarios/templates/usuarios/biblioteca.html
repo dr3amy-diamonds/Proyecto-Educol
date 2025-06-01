@@ -1,0 +1,77 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- CSS -->
+    <link rel="stylesheet" href="{% static 'usuarios/css/Biblioteca.css' %}" />
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="{% static 'usuarios/images/icon.png' %}" type="image/x-icon" />
+    <title>Biblioteca</title>
+</head>
+<body>
+    <div class="Cabezera_superior">
+            <!-- Botón Atrás vuelve al dashboard -->
+     
+    <div class="Boton">
+        <a href="{% url 'inicio' %}">
+            <img class="boton_Atras"
+                 src="{% static 'usuarios/images/atras.png' %}"
+                 alt="Botón Atrás" />
+        </a>
+    </div>
+    
+
+    </div>
+
+
+
+    <div class="Contenedor_principal">
+        <div class="Caja">
+            <h1>Biblioteca</h1>
+            <img class="Logo_biblioteca"
+                 src="{% static 'usuarios/images/Biblioteca.png' %}"
+                 alt="Logo biblioteca" />
+        </div>
+
+        <div class="Tabla_y_Contenido">
+            <div class="Tabla">
+                <table>
+                    <tr>
+                        <th class="Cabeza">Área</th>
+                    </tr>
+                    {% for a in areas %}
+                    <tr>
+                        <td class="area">
+                            <a href="{% url 'biblioteca' %}?area={{ a|urlencode }}">{{ a }}</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </table>
+            </div>
+
+            <div class="Contenido_dinamico" id="contenido">
+                {% if area_sel %}
+                    <h2>{{ area_sel }}</h2>
+                    <ul>
+                        {% for libro in libros %}
+                        <li>
+                            <strong>{{ libro.titulo }}</strong>
+                            {% if libro.autor %} — {{ libro.autor }}{% endif %}
+                            {% if libro.enlace %}
+                            (<a href="{{ libro.enlace }}" target="_blank">ver</a>)
+                            {% endif %}
+                        </li>
+                        {% empty %}
+                        <li>No hay libros registrados en esta área.</li>
+                        {% endfor %}
+                    </ul>
+                {% else %}
+                    <p>Selecciona un área para ver los libros.</p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</body>
+</html>

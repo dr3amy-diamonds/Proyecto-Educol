@@ -1,0 +1,200 @@
+{# usuarios/templates/usuarios/formulario_profesor.html #}
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="shortcut icon" href="{% static 'usuarios/images/icon.png' %}" type="image/x-icon">
+  <link rel="stylesheet" href="{% static 'usuarios/css/Formulario_Profesor.css' %}" />
+  <script src="{% static 'usuarios/js/formulario_profesor.js' %}"></script>
+  <title>Formulario de Registro Profesor</title>
+</head>
+<body>
+  <div class="cabezota">    <div class="Boton">
+        <a href="{% url 'inicio' %}">
+            <img class="boton_Atras"
+                 src="{% static 'usuarios/images/atras.png' %}"
+                 alt="Botón Atrás" />
+        </a>
+    </div></div>
+  <div class="fondo"></div>
+
+  <div class="flex_superior">
+    <a href="{% url 'inicio' %}">
+      <img class="Atras" src="{% static 'usuarios/images/icon.png' %}" alt="Botón Atrás" />
+    </a>
+  </div>
+
+  <div class="cabeza">
+    <div class="cabeza-box">
+      <img src="{% static 'usuarios/images/Profesor.png' %}" alt="Logo Profesor" />
+      <h1>Formulario de Registro Profesor</h1>
+    </div>
+  </div>
+
+  <div class="formulario-contenedor">
+    <form id="formularioProfesor"
+          method="post"
+          action="{% url 'formulario_profesor' %}"
+          enctype="multipart/form-data">
+      {% csrf_token %}
+
+      <!-- Pagina 1 -->
+      <fieldset class="pagina active">
+        <h2>1. Información Personal</h2>
+        <label>Nombre completo
+          <input type="text" name="nombre_completo" required>
+        </label>
+        <label>Tipo y número de identificación
+          <input type="text" name="identificacion" required>
+        </label>
+        <label>Correo electrónico
+          <input type="email" name="mail" required>
+        </label>
+        <label>Número de teléfono
+          <input type="tel" name="telefono" required>
+        </label>
+      </fieldset>
+
+      <!-- Pagina 2 -->
+      <fieldset class="pagina">
+        <h2>2. Credenciales de Acceso</h2>
+        <label>Nombre de usuario (opcional)
+          <input type="text" name="username">
+        </label>
+        <label>Contraseña
+          <input type="password" name="password1" required>
+        </label>
+        <label>Confirmar contraseña
+          <input type="password" name="password2" required>
+        </label>
+        <div class="rol">Rol del usuario: <strong>Profesor</strong></div>
+      </fieldset>
+
+      <!-- Pagina 3 -->
+      <fieldset class="pagina">
+        <h2>3. Información Académica</h2>
+        <label>Nivel educativo alcanzado
+          <input type="text" name="nivel_educativo" required>
+        </label>
+        <label>Título profesional o área
+          <input type="text" name="titulo_profesional" required>
+        </label>
+        <label>Institución de formación
+          <input type="text" name="institucion" required>
+        </label>
+        <label>Años de experiencia docente
+          <input type="number" name="experiencia" min="0" required>
+        </label>
+        <label for="cursos">Cursos a dictar
+          <label for="cursos">Cursos a dictar
+  <select id="cursos" name="curso_dictar" required>
+          <option value="" disabled selected>Seleccione un curso</option>
+          <option value="Matemáticas">Matemáticas</option>
+          <option value="Inglés">Inglés</option>
+          <option value="Lengua">Lengua</option>
+          <option value="Informática">Informática</option>
+           <option value="Sociales">Sociales</option>
+           </select>
+         </label>
+        <label>Nivel de los cursos
+          <select name="nivel_curso" required>
+            <option value="Básico">Básico</option>
+            <option value="Intermedio">Intermedio</option>
+            <option value="Avanzado">Avanzado</option>
+          </select>
+        </label>
+      </fieldset>
+
+      <!-- Pagina 4 -->
+      <fieldset class="pagina">
+        <h2>4. Asignación en el Sistema</h2>
+        <label>Modalidad de clases
+          <select name="modalidad" required>
+            <option value="Presencial">Presencial</option>
+            <option value="Virtual">Virtual</option>
+            <option value="Híbrido">Híbrido</option>
+          </select>
+        </label>
+        <label>Horario disponible
+          <input type="text" name="horario" placeholder="Ej: Lunes 8am-12pm" required>
+        </label>
+        <label>Carga académica deseada
+          <input type="text" name="carga" required>
+        </label>
+      </fieldset>
+
+      <!-- Pagina 5 -->
+      <fieldset class="pagina">
+        <h2>5. Documentación Adjunta</h2>
+        <label>CV / Hoja de vida
+          <input type="file" name="cv" required>
+        </label>
+        <label>Títulos y certificados académicos
+          <input type="file" name="certificados" required>
+        </label>
+        <label>Documento de identidad escaneado
+          <input type="file" name="identidad" required>
+        </label>
+      </fieldset>
+
+      <!-- Pagina 6 -->
+      <fieldset class="pagina">
+        <h2>6. Preferencias y Consentimientos</h2>
+        <label><input type="checkbox" name="acepta_terminos" required> Acepto los términos y condiciones</label>
+        <label><input type="checkbox" name="consiente_datos" required> Consiento el tratamiento de mis datos personales</label>
+        <label>Foto de perfil
+          <input type="file" name="foto_perfil">
+        </label>
+        <label>Biografía profesional
+          <textarea name="biografia" rows="3"></textarea>
+        </label>
+        <label>LinkedIn o portafolio
+          <input type="url" name="linkedin">
+        </label>
+        <label>Especialidades temáticas
+          <input type="text" name="especialidades">
+        </label>
+      </fieldset>
+
+      <div class="botones-nav">
+        <button type="button" id="anteriorBtn">Anterior</button>
+        <button type="button" id="siguienteBtn">Siguiente</button>
+        <button type="submit" id="submitBtn" style="display:none">Enviar</button>
+      </div>
+
+    </form>
+  </div>
+
+  <script>
+    const paginas = document.querySelectorAll('.pagina');
+    const anteriorBtn = document.getElementById('anteriorBtn');
+    const siguienteBtn = document.getElementById('siguienteBtn');
+    const submitBtn = document.getElementById('submitBtn');
+    let paginaActual = 0;
+
+    function mostrarPagina(index) {
+      paginas.forEach((p, i) => p.style.display = i === index ? 'block' : 'none');
+      anteriorBtn.style.display = index > 0 ? 'inline-block' : 'none';
+      siguienteBtn.style.display = index < paginas.length - 1 ? 'inline-block' : 'none';
+      submitBtn.style.display = index === paginas.length - 1 ? 'inline-block' : 'none';
+    }
+
+    anteriorBtn.onclick = () => { if (paginaActual > 0) paginaActual--; mostrarPagina(paginaActual) };
+    siguienteBtn.onclick = () => { if (paginaActual < paginas.length - 1) paginaActual++; mostrarPagina(paginaActual) };
+
+    mostrarPagina(paginaActual);
+  </script>
+
+  <footer>
+    EduCol © 2025. Todos los derechos reservados.
+    <br>
+    Creado Por Sarah Montes & Valentina Ojeda
+    <br>
+    Correo: Val&amp;SarahPro@jourrapide.com
+    <br>
+    Teléfono de Contacto: 318-489-9744
+  </footer>
+</body>
+</html>
