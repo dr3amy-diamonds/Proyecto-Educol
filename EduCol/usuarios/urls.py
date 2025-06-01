@@ -1,4 +1,5 @@
-# usuarios/urls.py
+# usuarios/urls
+
 from django.urls import path
 from . import views
 from .views import eventos_json
